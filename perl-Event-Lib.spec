@@ -4,13 +4,13 @@
 #
 Name     : perl-Event-Lib
 Version  : 1.03
-Release  : 1
+Release  : 2
 URL      : https://cpan.metacpan.org/authors/id/V/VP/VPARSEVAL/Event-Lib-1.03.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/V/VP/VPARSEVAL/Event-Lib-1.03.tar.gz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : Artistic-1.0 GPL-1.0
-Requires: perl-Event-Lib-lib = %{version}-%{release}
+Requires: perl-Event-Lib-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 BuildRequires : pkgconfig(libevent)
 Patch1: buildfix.patch
@@ -26,7 +26,6 @@ received.
 %package dev
 Summary: dev components for the perl-Event-Lib package.
 Group: Development
-Requires: perl-Event-Lib-lib = %{version}-%{release}
 Provides: perl-Event-Lib-devel = %{version}-%{release}
 Requires: perl-Event-Lib = %{version}-%{release}
 
@@ -34,16 +33,18 @@ Requires: perl-Event-Lib = %{version}-%{release}
 dev components for the perl-Event-Lib package.
 
 
-%package lib
-Summary: lib components for the perl-Event-Lib package.
-Group: Libraries
+%package perl
+Summary: perl components for the perl-Event-Lib package.
+Group: Default
+Requires: perl-Event-Lib = %{version}-%{release}
 
-%description lib
-lib components for the perl-Event-Lib package.
+%description perl
+perl components for the perl-Event-Lib package.
 
 
 %prep
 %setup -q -n Event-Lib-1.03
+cd %{_builddir}/Event-Lib-1.03
 %patch1 -p1
 
 %build
@@ -80,12 +81,12 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/Event/Lib.pm
 
 %files dev
 %defattr(-,root,root,-)
 /usr/share/man/man3/Event::Lib.3
 
-%files lib
+%files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/x86_64-linux-thread-multi/auto/Event/Lib/Lib.so
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/Event/Lib.pm
+/usr/lib/perl5/vendor_perl/5.30.1/x86_64-linux-thread-multi/auto/Event/Lib/Lib.so
