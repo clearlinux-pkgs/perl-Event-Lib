@@ -4,7 +4,7 @@
 #
 Name     : perl-Event-Lib
 Version  : 1.03
-Release  : 8
+Release  : 9
 URL      : https://cpan.metacpan.org/authors/id/V/VP/VPARSEVAL/Event-Lib-1.03.tar.gz
 Source0  : https://cpan.metacpan.org/authors/id/V/VP/VPARSEVAL/Event-Lib-1.03.tar.gz
 Summary  : No detailed summary available
